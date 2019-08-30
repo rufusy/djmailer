@@ -1,6 +1,8 @@
 from rest_framework import serializers
 
-class SubsciberSerializer(serializers.Serializer):
-    name = serializers.CharField(max_length=6)
-    age = serializers.IntegerField()
-    email = serializers.EmailField()
+from .models import Subscriber
+
+class SubsciberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscriber
+        fields = "__all__"
